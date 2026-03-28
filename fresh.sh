@@ -54,7 +54,7 @@ if [[ ! -d "$HOME/.config/nvim" ]]; then
 fi
 
 # Symlink the Mackup config file to the home directory
-ln -sfn ./.mackup.cfg "$HOME/.mackup.cfg"
+ln -sfn "$HOME/.dotfiles/.mackup.cfg" "$HOME/.mackup.cfg"
 
 # Set macOS preferences last in a separate shell so its sudo keepalive/background
 # process does not leak into the current session.
