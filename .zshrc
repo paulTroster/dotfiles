@@ -1,5 +1,6 @@
 export PATH="$HOME/.pyenv/bin:$PATH"
 . "$HOME/.local/bin/env"
+source "$HOME/.dotfiles/aliases.zsh"
 
 eval "$(pyenv init -)"
 eval "$(zoxide init zsh)"
