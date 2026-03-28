@@ -12,8 +12,10 @@ brew "pyenv"
 brew "pyright"
 brew "ripgrep"
 brew "sketchybar"
-brew "zoxide"
 brew "starship"
+brew "zoxide"
+brew "zsh-autocomplete"
+brew "zsh-fast-syntax-highlighting"
 
 # nvim
 brew "neovim"
