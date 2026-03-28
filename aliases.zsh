@@ -4,7 +4,7 @@ alias shutdown="sudo shutdown -h now"
 alias pipfuckup="pip freeze | xargs pip uninstall -y"
 alias .="cd ../"
 alias ..="cd ../../"
-alias ..="cd ../../../"
+alias ...="cd ../../../"
 
 # Git
 alias gs="git status"
