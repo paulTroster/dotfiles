@@ -13,6 +13,7 @@ brew "pyright"
 brew "ripgrep"
 brew "sketchybar"
 brew "zoxide"
+brew "starship"
 
 # nvim
 brew "neovim"
