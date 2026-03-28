@@ -1,5 +1,17 @@
 #!/usr/bin/env bash
 
+set -euo pipefail
+
+if [[ -n "${ZSH_EVAL_CONTEXT:-}" && "${ZSH_EVAL_CONTEXT}" == *:file ]]; then
+  echo "Run this script with 'bash ./fresh.sh' or './fresh.sh', not 'source fresh.sh'."
+  return 1
+fi
+
+if [[ -n "${BASH_SOURCE[0]:-}" && "${BASH_SOURCE[0]}" != "$0" ]]; then
+  echo "Run this script with 'bash ./fresh.sh' or './fresh.sh', not 'source fresh.sh'."
+  return 1
+fi
+
 echo "Setting up your Mac..."
 
 # Check if Xcode Command Line Tools are installed
@@ -29,8 +41,17 @@ ln -sw "$HOME/.dotfiles/ghostty" "$HOME/.config/ghostty"
 # Update Homebrew recipes
 brew update
 
-# Install dependencies
-brew bundle --file ./Brewfile
+# Refresh sudo once before cask installs so interactive prompts are expected.
+sudo -v
+
+# Install dependencies with verbose output so long-running cask downloads are visible
+brew bundle --verbose --file ./Brewfile
+
+# Bootstrap LazyVim starter config if Neovim has not been set up yet.
+if [[ ! -d "$HOME/.config/nvim" ]]; then
+  git clone https://github.com/LazyVim/starter "$HOME/.config/nvim"
+  rm -rf "$HOME/.config/nvim/.git"
+fi
 
 # Symlink the Mackup config file to the home directory
 ln -sfn ./.mackup.cfg "$HOME/.mackup.cfg"
