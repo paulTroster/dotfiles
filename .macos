@@ -11,17 +11,24 @@ osascript -e 'tell application "System Preferences" to quit'
 sudo -v
 
 # Keep-alive: update existing `sudo` time stamp until `.macos` has finished
-while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+while true; do
+  sudo -n true
+  sleep 60
+  kill -0 "$$" || exit
+done 2>/dev/null &
+
+COMPUTER_NAME="MacBook Paul"
+LOCAL_HOST_NAME="${COMPUTER_NAME// /-}"
 
 ###############################################################################
 # General UI/UX                                                               #
 ###############################################################################
 
 # Set computer name (as done via System Preferences → Sharing)
-sudo scutil --set ComputerName "MacBook Paul"
-sudo scutil --set HostName "MacBook Paul"
-sudo scutil --set LocalHostName "MacBook Paul"
-sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "MacBook Paul"
+sudo scutil --set ComputerName "$COMPUTER_NAME"
+sudo scutil --set HostName "$LOCAL_HOST_NAME"
+sudo scutil --set LocalHostName "$LOCAL_HOST_NAME"
+sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "$COMPUTER_NAME"
 
 # Disable the sound effects on boot
 sudo nvram SystemAudioVolume=" "
@@ -118,7 +125,10 @@ defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
 defaults write com.apple.finder WarnOnEmptyTrash -bool false
 
 # Show the ~/Library folder
-chflags nohidden ~/Library && xattr -d com.apple.FinderInfo ~/Library
+chflags nohidden ~/Library
+if xattr -p com.apple.FinderInfo ~/Library >/dev/null 2>&1; then
+  xattr -d com.apple.FinderInfo ~/Library
+fi
 
 # Show the /Volumes folder
 # sudo chflags nohidden /Volumes
@@ -126,9 +136,9 @@ chflags nohidden ~/Library && xattr -d com.apple.FinderInfo ~/Library
 # Expand the following File Info panes:
 # “General”, “Open with”, and “Sharing & Permissions”
 defaults write com.apple.finder FXInfoPanesExpanded -dict \
-    General -bool true \
-    OpenWith -bool true \
-    Privileges -bool true
+  General -bool true \
+  OpenWith -bool true \
+  Privileges -bool true
 
 ###############################################################################
 # Dock, Dashboard, and hot corners                                            #
@@ -160,13 +170,6 @@ defaults write com.apple.dock autohide -bool true
 
 # Don’t show recent applications in Dock
 defaults write com.apple.dock show-recents -bool false
-
-###############################################################################
-# Mail                                                                        #
-###############################################################################
-
-# Copy email addresses as `foo@example.com` instead of `Foo Bar <foo@example.com>` in Mail.app
-defaults write com.apple.mail AddressesIncludeNameOnPasteboard -bool false
 
 ###############################################################################
 # Messages                                                                    #
