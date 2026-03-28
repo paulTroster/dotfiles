@@ -1,0 +1,33 @@
+background = #1e2326
+foreground = #d3c6aa
+selection-background = #4c3743
+selection-foreground = #d3c6aa
+cursor-color = #e69875
+cursor-text = #4c3743
+cursor-invert-fg-bg = true
+palette = 0=#7a8478
+palette = 1=#e67e80
+palette = 2=#a7c080
+palette = 3=#dbbc7f
+palette = 4=#7fbbb3
+palette = 5=#d699b6
+palette = 6=#83c092
+palette = 7=#f2efdf
+palette = 8=#a6b0a0
+palette = 9=#f85552
+palette = 10=#8da101
+palette = 11=#dfa000
+palette = 12=#3a94c5
+palette = 13=#df69ba
+palette = 14=#35a77c
+palette = 15=#fffbef
+font-size = 19
+macos-icon = holographic
+macos-icon-frame = plastic
+
+# Enable your custom cursor shader
+# custom-shader = "./shaders/cursor_blaze.glsl"
+# custom-shader = "./shaders/ghostty-shaders/retro-terminal.glsl"
+# custom-shader = "./shaders/Synesthaxia.glsl"
+custom-shader = "./shaders/ghostty-shaders/cursor_blaze.glsl"
+# custom-shader = "./shaders/ghostty-shaders/cursor_blaze_no_trail.glsl"
