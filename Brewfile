@@ -1,5 +1,4 @@
 # Taps
-tap "homebrew/cask"
 tap "felixkratz/formulae"
 
 # Binaries
@@ -21,7 +20,10 @@ brew "zsh-fast-syntax-highlighting"
 brew "neovim"
 brew "fd"
 brew "gcc"
+brew "fzf"
+brew "lazygit"
 brew "tree-sitter"
+brew "tree-sitter-cli"
 brew "unzip"
 
 # Apps
@@ -30,12 +32,11 @@ cask "discord"
 cask "ghostty"
 cask "linearmouse"
 cask "obsidian"
-cask "signal"
 cask "visual-studio-code"
-cask "zen-browser"
+cask "zen"
 
 # Menu Bar
-cask "hiddenbar"
+# cask "hiddenbar"
 
 # Fonts
 cask "font-hack-nerd-font"
