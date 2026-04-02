@@ -37,6 +37,8 @@ ln -sw "$HOME/.dotfiles/.zshrc" "$HOME/.zshrc"
 mkdir -p "$HOME/.config"
 rm -rf "$HOME/.config/ghostty"
 ln -sw "$HOME/.dotfiles/ghostty" "$HOME/.config/ghostty"
+rm -rf "$HOME/.config/sketchybar"
+ln -sw "$HOME/.dotfiles/sketchybar" "$HOME/.config/sketchybar"
 
 # Update Homebrew recipes
 brew update
