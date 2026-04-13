@@ -1,5 +1,6 @@
 # Shortcuts
 alias copyssh="pbcopy < $HOME/.ssh/id_ed25519.pub"
+mkvenv() { python3 -m venv --copies .venv && source .venv/bin/activate; }
 alias shutdown="sudo shutdown -h now"
 alias pipfuckup="pip freeze | xargs pip uninstall -y"
 alias .="cd ../"
