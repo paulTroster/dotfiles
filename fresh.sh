@@ -39,6 +39,8 @@ rm -rf "$HOME/.config/ghostty"
 ln -sw "$HOME/.dotfiles/ghostty" "$HOME/.config/ghostty"
 rm -rf "$HOME/.config/sketchybar"
 ln -sw "$HOME/.dotfiles/sketchybar" "$HOME/.config/sketchybar"
+rm -rf "$HOME/.config/starship.toml"
+ln -sw "$HOME/.dotfiles/starship.toml" "$HOME/.config/starship.toml"
 
 # Update Homebrew recipes
 brew update

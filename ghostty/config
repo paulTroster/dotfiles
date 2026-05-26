@@ -21,6 +21,7 @@ palette = 12=#3a94c5
 palette = 13=#df69ba
 palette = 14=#35a77c
 palette = 15=#fffbef
+font-family = Hack Nerd Font Mono
 font-size = 19
 macos-icon = holographic
 macos-icon-frame = plastic
