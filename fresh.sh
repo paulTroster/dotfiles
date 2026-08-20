@@ -34,6 +34,9 @@ fi
 rm -rf "$HOME/.zshrc"
 ln -sw "$HOME/.dotfiles/.zshrc" "$HOME/.zshrc"
 
+rm -rf "$HOME/.aerospace.toml"
+ln -sw "$HOME/.dotfiles/aerospace.toml" "$HOME/.aerospace.toml"
+
 mkdir -p "$HOME/.config"
 rm -rf "$HOME/.config/ghostty"
 ln -sw "$HOME/.dotfiles/ghostty" "$HOME/.config/ghostty"
